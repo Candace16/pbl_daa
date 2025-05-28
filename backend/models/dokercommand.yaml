@@ -1,0 +1,316 @@
+
+docker exec -it bookmyshow-mongodb mongosh -u admin -p password123 --authenticationDatabase admin
+
+use bookmyshow
+
+db.movies.insertMany([
+  {
+    title: "Interstellar",
+    description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    genre: ["Sci-Fi", "Drama"],
+    language: ["English"],
+    duration: 169,
+    rating: 8.6,
+    votes: 1200000,
+    certification: "U/A",
+    releaseDate: new Date("2014-11-07"),
+    poster: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/297acd129204217.616629e21fe76.png",
+    backdrop: "https://example.com/backdrops/interstellar.jpg",
+    trailer: "https://youtube.com/watch?v=zSWdZVtXT7E",
+    cast: [
+      { name: "Matthew McConaughey", role: "Cooper", image: "" },
+      { name: "Anne Hathaway", role: "Brand", image: "" }
+    ],
+    crew: [
+      { name: "Christopher Nolan", role: "Director", image: "" },
+      { name: "Hans Zimmer", role: "Music Director", image: "" }
+    ],
+    formats: ["2D", "IMAX"],
+    status: "ended",
+    isActive: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    title: "Tamasha",
+    description: "Ved and Tara fall in love while on vacation in Corsica and decide to keep their real identities hidden.",
+    genre: ["Romance", "Drama"],
+    language: ["Hindi"],
+    duration: 139,
+    certification: "U",
+    releaseDate: new Date("2015-11-27"),
+    poster: "https://th.bing.com/th/id/R.2817620697d77047784c6c4618e0ac2b?rik=kdi1symNr%2fcUKw&riu=http%3a%2f%2fimages.indiatvnews.com%2fentertainmentbollywood%2f2015%2f1442648251Tamasha-poster.jpg&ehk=8pCFEFLmobOwAfhGFhGSeqQV%2fdbCT6CwdPQzQicqkt4%3d&risl=&pid=ImgRaw&r=0",
+    trailer: "https://youtube.com/watch?v=o-e5f0zzS6Y",
+    cast: [
+      { name: "Ranbir Kapoor", role: "Ved", image: "" },
+      { name: "Deepika Padukone", role: "Tara", image: "" }
+    ],
+    crew: [
+      { name: "Imtiaz Ali", role: "Director", image: "" },
+      { name: "A. R. Rahman", role: "Music Director", image: "" }
+    ],
+    formats: ["2D"],
+    status: "ended",
+    isActive: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    title: "Jungle Adventure",
+    description: "An epic animated tale of animals defending their home from human invasion.",
+    genre: ["Animation", "Adventure"],
+    language: ["English", "Hindi"],
+    duration: 95,
+    certification: "U",
+    releaseDate: new Date("2025-07-15"),
+    poster: "https://c8.alamy.com/comp/2AG825N/jungle-adventures-retro-poster-design-with-wild-animal-and-jungle-trees-2AG825N.jpg",
+    formats: ["2D", "3D"],
+    status: "upcoming",
+    isActive: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    title: "Whispers in the Dark",
+    description: "A couple moves into an old mansion unaware of its haunted past.",
+    genre: ["Horror", "Thriller"],
+    language: ["English"],
+    duration: 110,
+    certification: "A",
+    releaseDate: new Date("2023-10-31"),
+    poster: "https://i.etsystatic.com/27062086/r/il/7a61d0/3062677674/il_1588xN.3062677674_b427.jpg",
+    cast: [
+      { name: "Emma Stone", role: "Lena", image: "" },
+      { name: "Daniel Radcliffe", role: "Mark", image: "" }
+    ],
+    crew: [
+      { name: "Jordan Peele", role: "Director", image: "" }
+    ],
+    formats: ["2D"],
+    status: "ended",
+    isActive: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    title: "Life Bites",
+    description: "A humorous take on everyday struggles and relationships in a big city.",
+    genre: ["Comedy", "Drama"],
+    language: ["Hindi", "English"],
+    duration: 120,
+    certification: "U/A",
+    releaseDate: new Date("2025-05-10"),
+    poster: "https://tse1.mm.bing.net/th/id/OIP.Zp4FTOnrguxMQvr6zuot0QAAAA?cb=iwp2&rs=1&pid=ImgDetMain",
+    formats: ["2D", "MX4D"],
+    status: "now_showing",
+    isActive: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+])
+
+
+
+db.theaters.insertMany([
+  {
+    name: "GEHU Bhimtal Cineplex 1",
+    location: {
+      address: "Graphic Era Hill University, Bhimtal Campus",
+      city: "Bhimtal",
+      state: "Uttarakhand",
+      pincode: "263132",
+      coordinates: {
+        latitude: 29.3444,
+        longitude: 79.5632
+      }
+    },
+    contact: {
+      phone: "9876543210",
+      email: "gehu1@cineplex.com"
+    },
+    screens: [
+      {
+        name: "Screen 1",
+        capacity: 15,
+        seatLayout: [
+          { row: "A", number: 1, type: "classic", price: 150 },
+          { row: "A", number: 2, type: "classic", price: 150 },
+          { row: "A", number: 3, type: "classic", price: 150 },
+          { row: "A", number: 4, type: "classic", price: 150 },
+          { row: "A", number: 5, type: "classic", price: 150 },
+          { row: "B", number: 1, type: "premium", price: 250 },
+          { row: "B", number: 2, type: "premium", price: 250 },
+          { row: "B", number: 3, type: "premium", price: 250 },
+          { row: "B", number: 4, type: "premium", price: 250 },
+          { row: "B", number: 5, type: "premium", price: 250 },
+          { row: "C", number: 1, type: "recliner", price: 400 },
+          { row: "C", number: 2, type: "recliner", price: 400 },
+          { row: "C", number: 3, type: "recliner", price: 400 },
+          { row: "C", number: 4, type: "recliner", price: 400 },
+          { row: "C", number: 5, type: "recliner", price: 400 }
+        ],
+        features: ["Dolby Atmos", "4K Projection", "Recliner Seats"]
+      }
+    ],
+    facilities: ["Parking", "Food Court", "Online Booking", "Air Conditioning"],
+    owner: ObjectId("6833298a337843d81c585757"),
+    isActive: true,
+    rating: 0,
+    totalRatings: 0,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "GEHU Bhimtal Cineplex 2",
+    location: {
+      address: "Graphic Era Hill University, Bhimtal Campus",
+      city: "Bhimtal",
+      state: "Uttarakhand",
+      pincode: "263132",
+      coordinates: {
+        latitude: 29.3444,
+        longitude: 79.5632
+      }
+    },
+    contact: {
+      phone: "9876543211",
+      email: "gehu2@cineplex.com"
+    },
+    screens: [
+      {
+        name: "Screen A",
+        capacity: 15,
+        seatLayout: [
+          { row: "A", number: 1, type: "classic", price: 150 },
+          { row: "A", number: 2, type: "classic", price: 150 },
+          { row: "A", number: 3, type: "classic", price: 150 },
+          { row: "A", number: 4, type: "classic", price: 150 },
+          { row: "A", number: 5, type: "classic", price: 150 },
+          { row: "B", number: 1, type: "premium", price: 250 },
+          { row: "B", number: 2, type: "premium", price: 250 },
+          { row: "B", number: 3, type: "premium", price: 250 },
+          { row: "B", number: 4, type: "premium", price: 250 },
+          { row: "B", number: 5, type: "premium", price: 250 },
+          { row: "C", number: 1, type: "recliner", price: 400 },
+          { row: "C", number: 2, type: "recliner", price: 400 },
+          { row: "C", number: 3, type: "recliner", price: 400 },
+          { row: "C", number: 4, type: "recliner", price: 400 },
+          { row: "C", number: 5, type: "recliner", price: 400 }
+        ],
+        features: ["Premium Sound", "3D Capable"]
+      }
+    ],
+    facilities: ["M-Ticket", "Wheelchair Accessible", "Food & Beverage"],
+    owner: ObjectId("6833298a337843d81c585757"),
+    isActive: true,
+    rating: 0,
+    totalRatings: 0,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+])
+
+use bookmyshow
+
+db.showtimes.insertMany([
+  {
+    movie: ObjectId("6834a9f005a97a6fe2d861ea"),
+    theater: ObjectId("6834ac8005a97a6fe2d861ef"),
+    date: ISODate("2025-05-26"),
+    time: "10:30 AM",
+    language: "Hindi",
+    format: "2D",
+    pricing: {
+      classic: 150,
+      premium: 250,
+      recliner: 400
+    },
+    totalSeats: 15,
+    availableSeats: 15,
+    bookedSeats: [],
+    status: "scheduled",
+    isActive: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    movie: ObjectId("6834a9f005a97a6fe2d861ea"),
+    theater: ObjectId("6834ac8005a97a6fe2d861ef"),
+    date: ISODate("2025-05-27"),
+    time: "01:15 PM",
+    language: "Hindi",
+    format: "2D",
+    pricing: {
+      classic: 150,
+      premium: 250,
+      recliner: 400
+    },
+    totalSeats: 15,
+    availableSeats: 15,
+    bookedSeats: [],
+    status: "scheduled",
+    isActive: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    movie: ObjectId("6834a9f005a97a6fe2d861ea"),
+    theater: ObjectId("6834ac8005a97a6fe2d861ef"),
+    date: ISODate("2025-05-28"),
+    time: "03:45 PM",
+    language: "Hindi",
+    format: "2D",
+    pricing: {
+      classic: 150,
+      premium: 250,
+      recliner: 400
+    },
+    totalSeats: 15,
+    availableSeats: 15,
+    bookedSeats: [],
+    status: "scheduled",
+    isActive: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    movie: ObjectId("6834a9f005a97a6fe2d861ea"),
+    theater: ObjectId("6834ac8005a97a6fe2d861ef"),
+    date: ISODate("2025-05-29"),
+    time: "06:00 PM",
+    language: "Hindi",
+    format: "2D",
+    pricing: {
+      classic: 150,
+      premium: 250,
+      recliner: 400
+    },
+    totalSeats: 15,
+    availableSeats: 15,
+    bookedSeats: [],
+    status: "scheduled",
+    isActive: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    movie: ObjectId("6834a9f005a97a6fe2d861ea"),
+    theater: ObjectId("6834ac8005a97a6fe2d861ef"),
+    date: ISODate("2025-05-30"),
+    time: "08:30 PM",
+    language: "Hindi",
+    format: "2D",
+    pricing: {
+      classic: 150,
+      premium: 250,
+      recliner: 400
+    },
+    totalSeats: 15,
+    availableSeats: 15,
+    bookedSeats: [],
+    status: "scheduled",
+    isActive: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+])
